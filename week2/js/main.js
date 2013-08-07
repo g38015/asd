@@ -33,18 +33,34 @@ $('#additem').on('pageinit', function(){
         localStorage.setItem(id, JSON.stringify(lead));
         alert("Lead Has Been Saved!");
     
-    }; 
-	
+    };
+
+    
+
 
 	$('#submit').click(function () {
-	storeData();
+	   storeData();
 	});
-	
-	
+
+
+
 });
 
 $('#show').on('pageinit', function(){
 	//any other code needed for addItem page goes here
+    var clearLocal = function(){
+        if (localStorage.length === 0) {
+         alert("There Are No Leads to Delete");
+        } else {
+            localStorage.clear();
+            alert("All Leads Have Been Deleted!");
+            window.location.reload();
+            return false;
+        }
+    };
+
+    $('#clear').click(function () {
+        clearLocal();
+    });
+     
 });
-
-
