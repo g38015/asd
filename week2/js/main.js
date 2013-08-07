@@ -32,7 +32,8 @@ $('#additem').on('pageinit', function(){
         // Save data to local storage Use stringify to convert object to a string
         localStorage.setItem(id, JSON.stringify(lead));
         alert("Lead Has Been Saved!");
-        window.location.reload();
+        window.location.reload("#");
+        return false;
     
     };
 
