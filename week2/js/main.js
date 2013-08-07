@@ -38,9 +38,7 @@ $('#additem').on('pageinit', function(){
     
 
 
-	$('#submit').click(function () {
-	   storeData();
-	});
+	$('#submit').on('click', storeData);
 
 
 
@@ -59,8 +57,6 @@ $('#show').on('pageinit', function(){
         }
     };
 
-    $('#clear').click(function () {
-        clearLocal();
-    });
-     
+    $('#clear').on('click', clearLocal);
+
 });
