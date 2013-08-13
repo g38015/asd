@@ -1,5 +1,4 @@
- {
- "lead": [
+[
   {
     "name":"Peter",
     "email":"peter@msn.com",
@@ -20,4 +19,3 @@
   }
   
 ]
-}
