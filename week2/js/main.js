@@ -29,7 +29,9 @@ $('#home').on('pageinit', function(){
                     var output='';
                     output += '<h2>'+ obj.name[1] +'</h2>';
                     output += '<h3>'+ obj.phone[1] +'</h3>';
-                    output += obj.email[1]; 
+                    output += obj.email[1];
+                    output += '<a href="#additem" id="editlead" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Edit' + '</a>' 
+                    output += '<a href="#showLead" id="deletelead" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Delete' + '</a>' 
                     $('#myleads').html(output);
                     
               
@@ -90,6 +92,17 @@ $('#additem').on('pageinit', function(){
     };
 
     $('#clear').on('click', clearLocal);
+        
+// Delete Single Lead
+    function deleteSingleLead() {
+         var ask = confirm("Really? Are You Sure?");
+         if (ask) {
+             localStorage.removeItem(this.key);
+             window.location.reload();
+         }else{
+             alert("Your Lead was not Deleted");
+         }
+    }
 
-
+    $('#deleteLead').on('click', deleteSingleLead)
 
