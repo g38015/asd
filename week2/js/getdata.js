@@ -1,7 +1,7 @@
 $('#json').on('click', function () {
         
         $.ajax({
-            url: "data.json",
+            url: "xhr/data.json",
             type: "GET",
             dataType: "json",
             success: function(response){
@@ -64,7 +64,7 @@ $('#json').on('click', function () {
 $('#xml').on('click', function () {
         
         $.ajax({
-            url: "data.xml",
+            url: "xhr/data.xml",
             type: "GET",
             dataType: "xml",
             success: function(response){
