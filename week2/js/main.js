@@ -4,7 +4,7 @@
 
 $('#home').on('pageinit', function(){
     
-    $('#jsontest').on('click', function () {
+    $('#json').on('click', function () {
         
         //$('#leads').empty();
         $.ajax({
@@ -76,24 +76,17 @@ $('#home').on('pageinit', function(){
 
     var getData = function(){
     if (localStorage.length === 0) {
+        //$("#popupDialog").popup();
         alert("You Have No Leads Please Add One");
         } else {
-           
             //Write local data from local storage to browser
             for (var i = 0, len=localStorage.length; i<len; i++) {
                 var l = localStorage.length;
                 var key = localStorage.key(i);
                 var value = localStorage.getItem(key);
                 var obj = JSON.parse(value);
-
-                    console.log(l);
-                    console.log(key);
-                    console.log(value);
-                    console.log(obj);
-
                     // Add li to lead page
                     $('<li>' + '<a href="#showLead">'+ obj.name[1] + '</a>'+'</li>').appendTo('#leads');
-
                     // Add output to show page
                     var output='';
                     output += '<h2>'+ obj.name[1] +'</h2>';
@@ -101,12 +94,11 @@ $('#home').on('pageinit', function(){
                     output += obj.email[1]; 
                     $('#myleads').html(output);
                     
-              
             } 
              //window.location.reload();
             $('#leads').listview('refresh');
-        }   
-        
+        }  
+
     };
 
     $('#local').on('click', getData);
