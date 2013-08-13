@@ -26,7 +26,7 @@ $('#json').on('click', function () {
                           + '<h3>' + val.phone + '</h3>' 
                           + '<h3>' + val.email + '</h3>'
                           + '<h3>' + val.date + '</h3>'
-                          + '<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="gear" data-theme="b">' + "Contact By..."
+                          + '<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="bars" data-theme="b">' + "Contact" + val.name + "By..."
                           + '</a>'
                           + '<div data-role="popup" id="popupMenu" data-theme="a">'
                           + '<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">'
