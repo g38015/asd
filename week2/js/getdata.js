@@ -1,5 +1,7 @@
 $('#json').on('click', function () {
         
+        $("#jsonleads").empty();
+
         $.ajax({
             url: "xhr/data.json",
             type: "GET",
@@ -34,7 +36,7 @@ $('#json').on('click', function () {
                           +   '<li><a href="tel:' + val.phone + '">Phone</a></li>'
                           +   '<li><a href="smsto:' + val.phone + '">Text</a></li>'
                           +   '<li><a href="mailto:' + val.email + '?Subject=Hello!">Email</a></li></ul>'
-                          + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">' + "Cancel" + '</a><a href="#" data-role="button" data-inline="true" data-rel="back" data-transition="flow" data-theme="b">' + "Edit" +'</a>'
+                          + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">' + "Cancel" + '</a>'
                           + '</div></div></div>');
                           
 
@@ -63,6 +65,8 @@ $('#json').on('click', function () {
 
 $('#xml').on('click', function () {
         
+        $("#xmlleads").empty();
+
         $.ajax({
             url: "xhr/data.xml",
             type: "GET",

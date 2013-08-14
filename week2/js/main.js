@@ -6,6 +6,9 @@ $('#home').on('pageinit', function(){
     
 
     var getData = function(){
+
+        $("#localleads").empty();
+
     if (localStorage.length === 0) {
         alert("You Have No Leads Please Add One");
         } else {
