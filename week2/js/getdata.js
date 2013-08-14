@@ -21,12 +21,12 @@ $('#json').on('click', function () {
                   //function goToPage(val){
                     $('.dynamic').on('click', function () {
                   //create the page html template
-                  var leadPage = $("<div data-role='page' id='page'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-rel='back' data-ajax='false'>Back</a><h1>" + 'Lead Name ' + val.name + "</h1></div><div data-role='content' align='center'>" 
+                  var leadPage = $("<div data-role='page' id='page'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-rel='back' data-ajax='false'>Back</a><h1>" + val.name + "</h1></div><div data-role='content' align='center'>" 
                           + '<h2>' + val.name + '</h2>' 
                           + '<h3>' + val.phone + '</h3>' 
                           + '<h3>' + val.email + '</h3>'
                           + '<h3>' + val.date + '</h3>'
-                          + '<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="bars" data-theme="b">' + "Contact" + val.name + "By..."
+                          + '<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="bars" data-theme="b">' + "Contact " + val.name + " By..."
                           + '</a>'
                           + '<div data-role="popup" id="popupMenu" data-theme="a">'
                           + '<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">'

@@ -16,6 +16,18 @@
     "email":"ruby@msn.com",
     "phone":"8135551212",
     "date":"date"
+  },
+  {
+    "name":"Ruby2",
+    "email":"ruby2@msn.com",
+    "phone":"7135551212",
+    "date":"date"
+  },
+  {
+    "name":"Ruby3",
+    "email":"ruby3@msn.com",
+    "phone":"2135551212",
+    "date":"date"
   }
   
 ]
