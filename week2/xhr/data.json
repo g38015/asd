@@ -1,31 +1,31 @@
 [
   {
-    "name":"Peter",
-    "email":"peter@msn.com",
+    "name":"Ruby Rails",
+    "email":"raisl@ruby.com",
     "phone":"9165551212",
     "date":"8/15/2013"
   },
   {
-    "name":"Ellie",
-    "email":"ellie@msn.com",
+    "name":"Sinatra Ruby",
+    "email":"sinatra@msn.com",
     "phone":"4085551212",
     "date":"8/15/2013"
   },
   {
-    "name":"Ruby",
-    "email":"ruby@msn.com",
+    "name":"Padrino Ruby",
+    "email":"padring@ruby.org",
     "phone":"8135551212",
     "date":"8/15/2013"
   },
   {
-    "name":"Ruby2",
-    "email":"ruby2@msn.com",
+    "name":"Gem File",
+    "email":"gems@rails.com",
     "phone":"7135551212",
     "date":"8/15/2013"
   },
   {
-    "name":"Ruby3",
-    "email":"ruby3@msn.com",
+    "name":"Db Migrate",
+    "email":"db@migrate.com",
     "phone":"2135551212",
     "date":"8/15/2013"
   }
