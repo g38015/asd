@@ -2,13 +2,10 @@
 // ASD 1308
 // Week 2
 
-$('#home').on('pageinit', function(){
-    
-
-});
 
 $('#additem').on('pageinit', function(){
     
+    // Stores Data to Local Storage
     var storeData = function(data, key){
     
     // if there is no key means brand new lead and need a new key
@@ -40,7 +37,7 @@ $('#additem').on('pageinit', function(){
 
 });
 
-// Clear Function Global
+// Clear Function
     var clearLocal = function(){
         if (localStorage.length === 0) {
          alert("There Are No Leads to Delete");

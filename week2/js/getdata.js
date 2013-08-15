@@ -72,6 +72,7 @@ var getJson = function() {
 
                   //go to the newly created page
                   $.mobile.changePage(leadPage);
+                  console.log('Made it through getJson');
                   return false
                   
                 });
@@ -101,7 +102,7 @@ var getXml = function() {
             var email = $(this).find('email').text();
             var phone = $(this).find('phone').text();
             var date = $(this).find('date').text();
-            $('<li>' + '<a href="#home" class="dynamic"><h2>'+ name +'</h2><p>' + email + '</p></a>'+'</li>' 
+            $('<li>' + '<a href="#page" class="dynamic"><h2>'+ name +'</h2><p>' + email + '</p></a>'+'</li>' 
               ).appendTo('#xmlleads');
                 // Create Dynamic showpage
                 //var email = $(this).find('email').text();
@@ -129,6 +130,7 @@ var getXml = function() {
 
                   //go to the newly created page
                   $.mobile.changePage(leadPage);
+                  console.log('Made it through getXml');
                   return false
                 });
                     
@@ -165,7 +167,7 @@ var getLocal = function(){
                     console.log(obj);
 
                     // Add li to lead page
-                    $('<li>' + '<a href="#page"><h2>'+ obj.name[1] + '</h2><p>'+ obj.email[1] + '</p></a>'+'</li>').appendTo('#localleads');
+                    $('<li>' + '<a href="#showLead"><h2>'+ obj.name[1] + '</h2><p>'+ obj.email[1] + '</p></a>'+'</li>').appendTo('#localleads');
 
                     // Add output to show page
                     var output='';
@@ -174,8 +176,8 @@ var getLocal = function(){
                     output += obj.email[1];
                     output += '<a href="#additem" id="editlead" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Edit' + '</a>' 
                     output += '<a href="#showLead" id="deletelead" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Delete' + '</a>' 
-                    $('#page').html(output);
-                    
+                    $('#myleads').html(output);
+                    console.log('Made it through getLocal');
             } 
 
             $('#localleads').listview('refresh');
