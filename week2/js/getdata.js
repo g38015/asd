@@ -1,3 +1,7 @@
+// Peter Hitchcock
+// ASD 1308
+// Week 2
+
 $('#home').on('pageinit', function(){
   // Loads AJAX JSON when Clicked  
   $('#jsonbtn').on('click', function () {
@@ -172,7 +176,6 @@ var getLocal = function(){
                     output += '<a href="#showLead" id="deletelead" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Delete' + '</a>' 
                     $('#page').html(output);
                     
-              
             } 
 
             $('#localleads').listview('refresh');
