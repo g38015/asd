@@ -1,29 +1,25 @@
-$('#jsonbtn').on('click', function () {
-  
-  getJson();
-       
+$('#home').on('pageinit', function(){
+  // Loads AJAX JSON when Clicked  
+  $('#jsonbtn').on('click', function () {
+    getJson(); 
+  });
+  // Loads AJAX XML when Clicked 
+  $('#xmlbtn').on('click', function () {   
+    getXml();     
+  });
+  // Loads LOCAL when Clicked 
+  $('#localbtn').on('click', function () {    
+    getLocal();   
+  });
+  // Loads JSON XML and LOCAL when Clicked 
+  $('.all').on('click', function () {
+   getJson();      
+   getXml();
+   getLocal();    
+  });
 });
 
-$('#xmlbtn').on('click', function () {
-        
-  getXml();
-        
-});
-
-$('#localbtn').on('click', function () {
-        
-  getLocal();
-        
-});
-
-$('.all').on('click', function () {
-  
-  getJson();      
-  getXml();
-  getLocal();
-        
-});
-
+// JSON AJAX function
 var getJson = function() {
   console.log('JSON Loaded!');
   $("#jsonleads").empty();
@@ -84,8 +80,7 @@ var getJson = function() {
     }); 
 };
 
-
-
+// XML AJAX Function
 var getXml = function() {
   console.log('XML Loaded!');
   $("#xmlleads").empty();
@@ -100,24 +95,37 @@ var getXml = function() {
             // Add to listview with link to showpage
             var name = $(this).find('name').text();
             var email = $(this).find('email').text();
+            var phone = $(this).find('phone').text();
+            var date = $(this).find('date').text();
             $('<li>' + '<a href="#home" class="dynamic"><h2>'+ name +'</h2><p>' + email + '</p></a>'+'</li>' 
               ).appendTo('#xmlleads');
                 // Create Dynamic showpage
                 //var email = $(this).find('email').text();
                 $('.dynamic').on('click', function () {
-                    // Page structure
-                    var newPage = $("<div data-role='page' id='page'><div data-role=header><a data-iconpos='left' data-icon='back' href='#show' data-role='button' data-rel='back' data-ajax='false'>Back</a><h1>" + name + "</h1></div><div data-role=content>" 
-                          + '<h1>' + name + '</h1>' 
-                          + '<h2>' + email + '</h2>' 
-                          + '<a href="#additem" id="btn" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Edit' + '</a>' 
-                          + '</div></div>');
+                //create the page html template
+                var leadPage = $("<div data-role='page' id='page'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-ajax='false'>Back</a><h1>" + name + "</h1></div><div data-role='content' align='center'>" 
+                          + '<h2>' + name + '</h2>' 
+                          + '<h3>' + phone + '</h3>' 
+                          + '<h3>' + email + '</h3>'
+                          + '<h3>' + date + '</h3>'
+                          + '<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="bars" data-theme="b">' + "Contact " + name + " By..."
+                          + '</a>'
+                          + '<div data-role="popup" id="popupMenu" data-theme="a">'
+                          + '<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">'
+                          + '<li data-role="divider" data-theme="b"></li>'
+                          +   '<li><a href="tel:' + phone + '">Phone</a></li>'
+                          +   '<li><a href="smsto:' + phone + '">Text</a></li>'
+                          +   '<li><a href="mailto:' + email + '?Subject=Hello!">Email</a></li></ul>'
+                          + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Cancel</a>'
+                          + '</div></div></div>');
+                          
+                  //append the new page to the page container
+                  leadPage.appendTo( $.mobile.pageContainer);
 
-                          // Append the new page into pageContainer
-                          newPage.appendTo($.mobile.pageContainer);
 
-                          // Move to this page by ID '#page'
-                          $.mobile.changePage('#page');
-                          return false
+                  //go to the newly created page
+                  $.mobile.changePage(leadPage);
+                  return false
                 });
                     
           })
@@ -132,6 +140,7 @@ var getXml = function() {
 
 };
 
+// Local Storage Function
 var getLocal = function(){
   console.log('Local Loaded!');
   $("#localleads").empty();
