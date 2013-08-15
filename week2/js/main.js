@@ -4,6 +4,16 @@
 
 
 $('#additem').on('pageinit', function(){
+
+    // Validation 
+    $( "#contactForm" ).validate({
+        rules: {
+            name: {
+                required: true,
+                min: 3
+            },
+        }
+    });
     
     // Stores Data to Local Storage
     var storeData = function(data, key){

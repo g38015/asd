@@ -43,7 +43,7 @@ var getJson = function() {
             function leadsLink(val){
 
               //debugger;
-              return '<li><a href="#page" class="dynamic"><h2>' + val.name + '</h2><p>' + val.email + '</p><p class="ui-li-aside"><strong></strong></p></a></li>';
+              return '<li><a href="#page" class="dynamic"><h2>' + val.name + '</h2><p>' + val.email + '</p><p class="ui-li-aside"><strong>' + val.date +'</strong></p></a></li>';
                   
             };
 
@@ -101,7 +101,7 @@ var getXml = function() {
             var email = $(this).find('email').text();
             var phone = $(this).find('phone').text();
             var date = $(this).find('date').text();
-            $('<li>' + '<a href="#page" class="dynamic"><h2>'+ name +'</h2><p>' + email + '</p></a>'+'</li>' 
+            $('<li>' + '<a href="#page" class="dynamic"><h2>'+ name +'</h2><p>' + email + '</p><p class="ui-li-aside"><strong>' + date +'</strong></p></a>'+'</li>' 
               ).appendTo('#xmlleads');
                 // Create Dynamic showpage
                 //var email = $(this).find('email').text();
@@ -165,7 +165,7 @@ var getLocal = function(){
                     console.log(obj);
 
         // Add li to lead page
-        $('<li>' + '<a href="#page" class="dynamic"><h2>'+ obj.name[1] +'</h2><p>' + obj.email[1] + '</p></a>'+'</li>').appendTo('#localleads');
+        $('<li>' + '<a href="#page" class="dynamic"><h2>'+ obj.name[1] +'</h2><p>' + obj.email[1] + '</p><p class="ui-li-aside"><strong>' + obj.date[1] +'</strong></p></a>'+'</li>').appendTo('#localleads');
   
 
           // Local Storage Dynamic Page
