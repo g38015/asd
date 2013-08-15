@@ -3,19 +3,19 @@
 // Week 2
 
 $('#home').on('pageinit', function(){
-  // Loads AJAX JSON when Clicked  
+  // Loads json from ajax when Clicked  
   $('#jsonbtn').on('click', function () {
     getJson(); 
   });
-  // Loads AJAX XML when Clicked 
+  // Loads xml from ajax when Clicked 
   $('#xmlbtn').on('click', function () {   
     getXml();     
   });
-  // Loads LOCAL when Clicked 
+  // Loads local when Clicked 
   $('#localbtn').on('click', function () {    
     getLocal();   
   });
-  // Loads JSON XML and LOCAL when Clicked 
+  // Loads all get functions; JSON XML and LOCAL when Clicked 
   $('.all').on('click', function () {
    getJson();      
    getXml();
@@ -72,7 +72,6 @@ var getJson = function() {
 
                   //go to the newly created page
                   $.mobile.changePage(leadPage);
-                  console.log('Made it through getJson');
                   return false
                   
                 });
@@ -130,7 +129,6 @@ var getXml = function() {
 
                   //go to the newly created page
                   $.mobile.changePage(leadPage);
-                  console.log('Made it through getXml');
                   return false
                 });
                     
@@ -152,29 +150,29 @@ var getLocal = function(){
   $("#localleads").empty();
     if (localStorage.length === 0) {
         alert("You Have No Leads Please Add One");
-        } else {
+    } else {
            
-            //Write local data from local storage to browser
-            for (var i = 0, len=localStorage.length; i<len; i++) {
-                var l = localStorage.length;
-                var key = localStorage.key(i);
-                var value = localStorage.getItem(key);
-                var obj = JSON.parse(value);
+      //Write local data from local storage to browser
+      for (var i = 0, len=localStorage.length; i<len; i++) {
+        var l = localStorage.length;
+        var key = localStorage.key(i);
+        var value = localStorage.getItem(key);
+        var obj = JSON.parse(value);
 
                     console.log(l);
                     console.log(key);
                     console.log(value);
                     console.log(obj);
 
-                    // Add li to lead page
-                    $('<li>' + '<a href="#page" class="dynamic"><h2>'+ obj.name[1] +'</h2><p>' + obj.email[1] + '</p></a>'+'</li>').appendTo('#localleads');
-                    //$('<li>' + '<a href="#showLead"><h2>'+ obj.name[1] + '</h2><p>'+ obj.email[1] + '</p></a>'+'</li>').appendTo('#localleads');
+        // Add li to lead page
+        $('<li>' + '<a href="#page" class="dynamic"><h2>'+ obj.name[1] +'</h2><p>' + obj.email[1] + '</p></a>'+'</li>').appendTo('#localleads');
+  
 
+          // Local Storage Dynamic Page
+          $('.dynamic').on('click', function () {
 
-                    // Show
-                    $('.dynamic').on('click', function () {
-                //create the page html template
-                var leadPage = $("<div data-role='page' id='page'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-ajax='false'>Back</a><h1>" + obj.name[1] + "</h1></div><div data-role='content' align='center'>" 
+              //create the dynamic page html template
+              var leadPage = $("<div data-role='page' id='page'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-ajax='false'>Back</a><h1>" + obj.name[1] + "</h1></div><div data-role='content' align='center'>" 
                           + '<h2>' + obj.name[1] + '</h2>' 
                           + '<h3>' + obj.phone[1] + '</h3>' 
                           + '<h3>' + obj.email[1] + '</h3>'
@@ -190,31 +188,17 @@ var getLocal = function(){
                           + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Cancel</a>'
                           + '</div></div></div>');
                           
-                  //append the new page to the page container
-                  leadPage.appendTo( $.mobile.pageContainer);
+              //append the new page to the page container
+              leadPage.appendTo( $.mobile.pageContainer);
 
+              //go to the newly created page
+              $.mobile.changePage(leadPage);
+              return false
+            });
 
-                  //go to the newly created page
-                  $.mobile.changePage(leadPage);
-                  console.log('Made it through getLocal');
-                  return false
-                });
-
-                /*   
-                    // Add output to show page
-                    var output='';
-                    output += '<h2>'+ obj.name[1] +'</h2>';
-                    output += '<h3>'+ obj.phone[1] +'</h3>';
-                    output += obj.email[1];
-                    output += '<a href="#additem" id="editlead" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Edit' + '</a>' 
-                    output += '<a href="#showLead" id="deletelead" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Delete' + '</a>' 
-                    $('#myleads').html(output);
-                    */
-                    
-            } 
-
-            $('#localleads').listview('refresh');
-        }   
+          } 
+          $('#localleads').listview('refresh');
+    }   
         
-    };
+};
 
