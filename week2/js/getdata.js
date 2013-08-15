@@ -167,8 +167,40 @@ var getLocal = function(){
                     console.log(obj);
 
                     // Add li to lead page
-                    $('<li>' + '<a href="#showLead"><h2>'+ obj.name[1] + '</h2><p>'+ obj.email[1] + '</p></a>'+'</li>').appendTo('#localleads');
+                    $('<li>' + '<a href="#page" class="dynamic"><h2>'+ obj.name[1] +'</h2><p>' + obj.email[1] + '</p></a>'+'</li>').appendTo('#localleads');
+                    //$('<li>' + '<a href="#showLead"><h2>'+ obj.name[1] + '</h2><p>'+ obj.email[1] + '</p></a>'+'</li>').appendTo('#localleads');
 
+
+                    // Show
+                    $('.dynamic').on('click', function () {
+                //create the page html template
+                var leadPage = $("<div data-role='page' id='page'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-ajax='false'>Back</a><h1>" + obj.name[1] + "</h1></div><div data-role='content' align='center'>" 
+                          + '<h2>' + obj.name[1] + '</h2>' 
+                          + '<h3>' + obj.phone[1] + '</h3>' 
+                          + '<h3>' + obj.email[1] + '</h3>'
+                          + '<h3>' + obj.date[1] + '</h3>'
+                          + '<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="bars" data-theme="b">' + "Contact " + obj.name[1] + " By..."
+                          + '</a>'
+                          + '<div data-role="popup" id="popupMenu" data-theme="a">'
+                          + '<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">'
+                          + '<li data-role="divider" data-theme="b"></li>'
+                          +   '<li><a href="tel:' + obj.phone[1] + '">Phone</a></li>'
+                          +   '<li><a href="smsto:' + obj.phone[1] + '">Text</a></li>'
+                          +   '<li><a href="mailto:' + obj.email[1] + '?Subject=Hello!">Email</a></li></ul>'
+                          + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Cancel</a>'
+                          + '</div></div></div>');
+                          
+                  //append the new page to the page container
+                  leadPage.appendTo( $.mobile.pageContainer);
+
+
+                  //go to the newly created page
+                  $.mobile.changePage(leadPage);
+                  console.log('Made it through getLocal');
+                  return false
+                });
+
+                /*   
                     // Add output to show page
                     var output='';
                     output += '<h2>'+ obj.name[1] +'</h2>';
@@ -177,7 +209,8 @@ var getLocal = function(){
                     output += '<a href="#additem" id="editlead" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Edit' + '</a>' 
                     output += '<a href="#showLead" id="deletelead" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Delete' + '</a>' 
                     $('#myleads').html(output);
-                    console.log('Made it through getLocal');
+                    */
+                    
             } 
 
             $('#localleads').listview('refresh');
