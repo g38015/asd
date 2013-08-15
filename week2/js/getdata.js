@@ -163,16 +163,16 @@ var getLocal = function(){
                     console.log(key);
                     console.log(value);
                     console.log(obj);
-
+                    
         // Add li to lead page
-        $('<li>' + '<a href="#page" class="dynamic"><h2>'+ obj.name[1] +'</h2><p>' + obj.email[1] + '</p><p class="ui-li-aside"><strong>' + obj.date[1] +'</strong></p></a>'+'</li>').appendTo('#localleads');
+        $('<li>' + '<a href="#page" class="dynamic" id='+"list:"+key+'><h2>'+ obj.name[1] +'</h2><p>' + obj.email[1] + '</p><p class="ui-li-aside"><strong>' + obj.date[1] +'</strong></p></a>'+'</li>').appendTo('#localleads');
   
 
           // Local Storage Dynamic Page
           $('.dynamic').on('click', function () {
 
               //create the dynamic page html template
-              var leadPage = $("<div data-role='page' id='page'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-ajax='false'>Back</a><h1>" + obj.name[1] + "</h1></div><div data-role='content' align='center'>" 
+              var leadPage = $("<div data-role='page' id='"+key+"'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-ajax='false'>Back</a><h1>" + obj.name[1] + "</h1></div><div data-role='content' align='center'>" 
                           + '<h2>' + obj.name[1] + '</h2>' 
                           + '<h3>' + obj.phone[1] + '</h3>' 
                           + '<h3>' + obj.email[1] + '</h3>'
