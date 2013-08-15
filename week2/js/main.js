@@ -59,7 +59,7 @@ $('#additem').on('pageinit', function(){
         }
     };
 
-    $('#clearlocal').on('click', clearLocal);
+    $('#deleteall').on('click', clearLocal);
         
 // Create Edit and Delete Links for Each Stored Lead when Displayed NOT WORKING
      function createLeadLinks(key, linkLi) {

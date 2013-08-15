@@ -23,6 +23,9 @@ $('#home').on('pageinit', function(){
   });
 });
 
+
+
+
 // JSON AJAX function
 var getJson = function() {
   console.log('JSON Loaded!');
@@ -177,8 +180,12 @@ var getLocal = function(){
                           + '<h3>' + obj.phone[1] + '</h3>' 
                           + '<h3>' + obj.email[1] + '</h3>'
                           + '<h3>' + obj.date[1] + '</h3>'
-                          + '<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="bars" data-theme="b">' + "Contact " + obj.name[1] + " By..."
+                          + '<a href="#popupMenu" data-rel="popup" data-role="button" data-transition="slideup" data-theme="b">' + "Contact " + obj.name[1] + " By..."
                           + '</a>'
+                          + '<div align="center">'
+                          + '<a href="#additem" data-role="button" id="editsingle" data-theme="a">Edit</a>'
+                          + '<a href="#home" data-role="button" id="deletesingle" data-theme="c">Delete</a>'
+                          + '</div>'
                           + '<div data-role="popup" id="popupMenu" data-theme="a">'
                           + '<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">'
                           + '<li data-role="divider" data-theme="b"></li>'
