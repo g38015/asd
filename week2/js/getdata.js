@@ -1,29 +1,56 @@
-$('#json').on('click', function () {
+$('#jsonbtn').on('click', function () {
+  
+  getJson();
+       
+});
+
+$('#xmlbtn').on('click', function () {
         
-        $("#jsonleads").empty();
+  getXml();
+        
+});
 
-        $.ajax({
-            url: "xhr/data.json",
-            type: "GET",
-            dataType: "json",
-            success: function(response){
-                $.each(response, function(key, val) {
+$('#localbtn').on('click', function () {
+        
+  getLocal();
+        
+});
 
-                  $('#jsonleads').append(leadsLink(val));
+$('.all').on('click', function () {
+  
+  getJson();      
+  getXml();
+  getLocal();
+        
+});
 
-                  $('#jsonleads').listview('refresh');
+var getJson = function() {
+  console.log('JSON Loaded!');
+  $("#jsonleads").empty();
 
-                  //Creates a lead link list item
-                  function leadsLink(val){
+    $.ajax({
+      url: "data.json",
+      type: "GET",
+      dataType: "json",
+        success: function(response){
+          $.each(response, function(key, val) {
+                  
+          $('#jsonleads').append(leadsLink(val));
 
-                  //debugger;
-                  return '<li><a href="#showLead" class="dynamic">' + val.name + '</a></li>';
-                  }
+          $('#jsonleads').listview('refresh');
 
-                  //function goToPage(val){
-                    $('.dynamic').on('click', function () {
-                  //create the page html template
-                  var leadPage = $("<div data-role='page' id='page'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-rel='back' data-ajax='false'>Back</a><h1>" + val.name + "</h1></div><div data-role='content' align='center'>" 
+            //Creates a lead link list item
+            function leadsLink(val){
+
+              //debugger;
+              return '<li><a href="#page" class="dynamic"><h2>' + val.name + '</h2><p>' + val.email + '</p><p class="ui-li-aside"><strong></strong></p></a></li>';
+                  
+            };
+
+            //function goToPage(val){
+            $('.dynamic').on('click', function () {
+                //create the page html template
+                var leadPage = $("<div data-role='page' id='page'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-ajax='false'>Back</a><h1>" + val.name + "</h1></div><div data-role='content' align='center'>" 
                           + '<h2>' + val.name + '</h2>' 
                           + '<h3>' + val.phone + '</h3>' 
                           + '<h3>' + val.email + '</h3>'
@@ -36,52 +63,50 @@ $('#json').on('click', function () {
                           +   '<li><a href="tel:' + val.phone + '">Phone</a></li>'
                           +   '<li><a href="smsto:' + val.phone + '">Text</a></li>'
                           +   '<li><a href="mailto:' + val.email + '?Subject=Hello!">Email</a></li></ul>'
-                          + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">' + "Cancel" + '</a>'
+                          + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Cancel</a>'
                           + '</div></div></div>');
                           
-
-
                   //append the new page to the page container
-                  leadPage.appendTo( $.mobile.pageContainer );
+                  leadPage.appendTo( $.mobile.pageContainer);
 
 
                   //go to the newly created page
                   $.mobile.changePage(leadPage);
                   return false
-                  //} 
-                  });
-
-
+                  
                 });
+
+
+            });
                 
-            }
+        }
 
-        }); 
-
-    });
-
+    }); 
+};
 
 
 
-$('#xml').on('click', function () {
-        
-        $("#xmlleads").empty();
+var getXml = function() {
+  console.log('XML Loaded!');
+  $("#xmlleads").empty();
 
-        $.ajax({
-            url: "xhr/data.xml",
-            type: "GET",
-            dataType: "xml",
-            success: function(response){
-                $(response).find('leads lead').each(function (){
-                   // Add to listview with link to showpage
-                    var name = $(this).find('name').text();
-                    $('<li>' + '<a href="#showLead" class="dynamic">'+ name + '</a>'+'</li>' 
-                    ).appendTo('#xmlleads');
-                    // Create Dynamic showpage
-                    var email = $(this).find('email').text();
-                    $('.dynamic').on('click', function () {
-                        // Page structure
-                        var newPage = $("<div data-role='page' id='page'><div data-role=header><a data-iconpos='left' data-icon='back' href='#show' data-role='button' data-rel='back' data-ajax='false'>Back</a><h1>" + name + "</h1></div><div data-role=content>" 
+    $.ajax({
+      url: "data.xml",
+      type: "GET",
+      dataType: "xml",
+        success: function(response){
+          $(response).find('leads lead').each(function (){
+                   
+            // Add to listview with link to showpage
+            var name = $(this).find('name').text();
+            var email = $(this).find('email').text();
+            $('<li>' + '<a href="#home" class="dynamic"><h2>'+ name +'</h2><p>' + email + '</p></a>'+'</li>' 
+              ).appendTo('#xmlleads');
+                // Create Dynamic showpage
+                //var email = $(this).find('email').text();
+                $('.dynamic').on('click', function () {
+                    // Page structure
+                    var newPage = $("<div data-role='page' id='page'><div data-role=header><a data-iconpos='left' data-icon='back' href='#show' data-role='button' data-rel='back' data-ajax='false'>Back</a><h1>" + name + "</h1></div><div data-role=content>" 
                           + '<h1>' + name + '</h1>' 
                           + '<h2>' + email + '</h2>' 
                           + '<a href="#additem" id="btn" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Edit' + '</a>' 
@@ -92,18 +117,57 @@ $('#xml').on('click', function () {
 
                           // Move to this page by ID '#page'
                           $.mobile.changePage('#page');
-
-                          });
+                          return false
+                });
                     
-                })
-                $('#xmlleads').listview('refresh');
+          })
+          $('#xmlleads').listview('refresh');
 
-            },
-            error: function() {
-                $('#leads').text('failed to load feed');
-            }
+        },
+        error: function() {
+          $('#leads').text('failed to load feed');
+      }
 
-        });
+  });
+
+};
+
+var getLocal = function(){
+  console.log('Local Loaded!');
+  $("#localleads").empty();
+    if (localStorage.length === 0) {
+        alert("You Have No Leads Please Add One");
+        } else {
+           
+            //Write local data from local storage to browser
+            for (var i = 0, len=localStorage.length; i<len; i++) {
+                var l = localStorage.length;
+                var key = localStorage.key(i);
+                var value = localStorage.getItem(key);
+                var obj = JSON.parse(value);
+
+                    console.log(l);
+                    console.log(key);
+                    console.log(value);
+                    console.log(obj);
+
+                    // Add li to lead page
+                    $('<li>' + '<a href="#page"><h2>'+ obj.name[1] + '</h2><p>'+ obj.email[1] + '</p></a>'+'</li>').appendTo('#localleads');
+
+                    // Add output to show page
+                    var output='';
+                    output += '<h2>'+ obj.name[1] +'</h2>';
+                    output += '<h3>'+ obj.phone[1] +'</h3>';
+                    output += obj.email[1];
+                    output += '<a href="#additem" id="editlead" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Edit' + '</a>' 
+                    output += '<a href="#showLead" id="deletelead" data-role="button" data-inline="true" data-ajax="false" data-theme="b">' + 'Delete' + '</a>' 
+                    $('#page').html(output);
+                    
+              
+            } 
+
+            $('#localleads').listview('refresh');
+        }   
         
-    });
+    };
 
