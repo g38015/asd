@@ -25,7 +25,7 @@ var getJson = function() {
   $("#jsonleads").empty();
 
     $.ajax({
-      url: "data.json",
+      url: "xhr/data.json",
       type: "GET",
       dataType: "json",
         success: function(response){
@@ -86,7 +86,7 @@ var getXml = function() {
   $("#xmlleads").empty();
 
     $.ajax({
-      url: "data.xml",
+      url: "xhr/data.xml",
       type: "GET",
       dataType: "xml",
         success: function(response){
