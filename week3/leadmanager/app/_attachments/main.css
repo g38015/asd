@@ -3,3 +3,16 @@
 	ASD 1308
 	Week 2
 */
+label.error {
+    float: left; 
+    color: red; 
+    padding-top: .5em; 
+    vertical-align: top; 
+    font-weight:bold;
+    display: block;
+    margin: 10px 0;
+}
+
+#errorslink {
+    display: none;
+}
