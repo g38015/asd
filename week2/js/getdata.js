@@ -166,11 +166,47 @@ var getLocal = function(){
                     console.log(key);
                     console.log(value);
                     console.log(obj);
-                    
+
+        var makeSubList = $("<li></li>");
+        var makeSubLi = $( "<h3>"+obj.name[1]+"</h3>"+
+                "<p><strong>"+obj.date[1]+"</strong></p>"+
+                "<p>"+obj.email[1]+"</p>" +
+                "<p>"+obj.name[1]+"</p>" );
+        var makeLink = $('<a href="#" id='+key+' data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="pop" data-icon="delete" data-theme="b">Delete page...</a>');
+
+          makeLink.on('click', function(){
+               
+                //console.log("This is my key: "+this.id);
+                deleteSingleLead(this.id);
+                //editSingleLead(this.id);
+                //$('#delete').on('click', function () { 
+                //console.log("fired!");   
+                //deleteSingleLead(this.id);   
+              //});
+                
+            //});
+            });
+            makeLink.html(makeSubLi);
+            makeSubList.append(makeLink).appendTo("#localleads");
+
+         
+
+          $('#localleads').listview('refresh');
+
+        }
+
+        
+    }   
+        
+};
+
+
+        /*            
         // Add li to lead page
         $('<li>' + '<a href="#page" class="dynamic" id='+"list:"+key+'><h2>'+ obj.name[1] +'</h2><p>' + obj.email[1] + '</p><p class="ui-li-aside"><strong>' + obj.date[1] +'</strong></p></a>'+'</li>').appendTo('#localleads');
+        */
   
-
+          /*
           // Local Storage Dynamic Page
           $('.dynamic').on('click', function () {
 
@@ -202,10 +238,7 @@ var getLocal = function(){
               $.mobile.changePage(leadPage);
               return false
             });
+            */
 
-          } 
-          $('#localleads').listview('refresh');
-    }   
-        
-};
+          
 

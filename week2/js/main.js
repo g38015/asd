@@ -61,68 +61,48 @@ $('#additem').on('pageinit', function(){
 
     $('#deleteall').on('click', clearLocal);
         
-// Create Edit and Delete Links for Each Stored Lead when Displayed NOT WORKING
-     function createLeadLinks(key, linkLi) {
-         // Add Edit
-         var editLead = document.createElement("a");
-         editLead.setAttribute("id", "editLead");
-         editLead.href = "#";
-         editLead.key = key;
-         var editText = "Edit";
-         editLead.addEventListener("click", editSingleLead);
-         editLead.innerHTML = editText;
-         linkLi.appendChild(editLead);
-         
-         // Add LineBreak
-         var breakLine = document.createElement("br");
-         linkLi.appendChild(breakLine);
-         
-         // Add Delete
-         var deleteLead = document.createElement('a');
-         deleteLead.setAttribute("id", "deleteLead");
-         deleteLead.href = "#";
-         deleteLead.key = key;
-         var deleteText = "Delete";
-         deleteLead.addEventListener("click", deleteSingleLead);
-         deleteLead.innerHTML = deleteText;
-         linkLi.appendChild(deleteLead);
-         
-     }
+
      
-     // Delete Single NOT WORKING
-     function deleteSingleLead() {
+     // Delete Single WORKING
+     function deleteSingleLead(key) {
          var ask = confirm("Really? Are You Sure?");
          if (ask) {
-             localStorage.removeItem(this.key);
+             localStorage.removeItem(key);
              window.location.reload();
          }else{
              alert("Your Lead was not Deleted");
          }
+              
      }
-     $('#deleteLead').on('click', deleteSingleLead);
+
 
      
-     // Edit Single NOT WORKING
-     function editSingleLead() {
+     // Edit Single WORKING EXEPT FOR VALIDATE
+      function editSingleLead(key) {
          // Grab Data from Local Storage
-         var value = localStorage.getItem(this.key);
+         //var key = $(this).data('key');
+         var value = localStorage.getItem(key);
          var lead = JSON.parse(value);
-        
+            
+            /*
+            console.log(key);
+            console.log(value);
+            console.log(lead.name[1]);
+            console.log(lead.phone[1]);
+            console.log(lead.email[1]);
+            console.log(lead.date[1]);
+            */
     
          // Populate Form Fields
-         $("#name").value = lead.name[1];
-         $("#phone").value = lead.phone[1];
-         $("#email").value = lead.email[1];
-         $("#date").value = lead.date[1];
+         $("#name").val(lead.name[1]);
+         $("#phone").val(lead.phone[1]);
+         $("#email").val(lead.email[1]);
+         $("#date").val(lead.date[1]);
          
-     
-         // Remove Listener from Input
-         save.removeEventListener("click", storeData);
-         // Change Submit to Say Edit Button
-         $("#submit").value = "Edit Lead";
-         var editSubmitButton = $("#submit");
-         // Save the Key Value Established as a Property of the editSubmit event
-         editSubmitButton.addEventListener("click", validation);
-         editSubmitButton.key = this.key;
+
+         //$('additem').page();
+         var saveButton = $('#newLead');
+         saveButton.text("Save Changes");
+         saveButton.unbind();
          
      }
