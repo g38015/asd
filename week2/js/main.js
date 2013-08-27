@@ -65,7 +65,7 @@ $('#additem').on('pageinit', function(){
      
      // Delete Single WORKING
      function deleteSingleLead(key) {
-         var ask = confirm("Really? Are You Sure?");
+         var ask = confirm("Really? Are You Sure You Want to Delete this Lead?");
          if (ask) {
              localStorage.removeItem(key);
              window.location.reload();
