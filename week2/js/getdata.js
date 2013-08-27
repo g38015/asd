@@ -176,16 +176,14 @@ var getLocal = function(){
 
           makeLink.on('click', function(){
                
-                //console.log("This is my key: "+this.id);
+                
                 deleteSingleLead(this.id);
                 //editSingleLead(this.id);
-                //$('#delete').on('click', function () { 
-                //console.log("fired!");   
-                //deleteSingleLead(this.id);   
-              //});
                 
-            //});
+                
+            
             });
+          
             makeLink.html(makeSubLi);
             makeSubList.append(makeLink).appendTo("#localleads");
 
