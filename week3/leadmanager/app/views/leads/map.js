@@ -1,5 +1,5 @@
 function(doc) {
- 	if (doc._id.substr(0, 3) === "dee") {
+ 	if (doc._id.substr(0, 4) === "7816") {
  		emit(doc._id, {
  		"name": doc.name,
  		"email": doc.email,
