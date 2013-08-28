@@ -66,7 +66,10 @@ $('#additem').on('pageinit', function(){
 
         
 // Delete Single Record from CouchDB
-    function deleteSingleLead() {
+    
+    $('#del').on('click', function(){
+        console.log('clicked');
+
         var ask = confirm("Really? Are You Sure?");
         var id = $(this).data('id');
         var rev = $(this).data('rev');
@@ -78,7 +81,6 @@ $('#additem').on('pageinit', function(){
         };
 
          if (ask) {
-
 
              //localStorage.removeItem(this.key);
              $.couch.db('leadmanager').removeDoc(doc, {
@@ -92,11 +94,11 @@ $('#additem').on('pageinit', function(){
              });
              //window.location.reload();
 
-
          }else{
              alert("Your Lead was not Deleted");
          }
-    }
+    });
 
-    //$('#deleteLead').on('click', deleteSingleLead)
+
+
 

@@ -1,8 +1,6 @@
 
 $(document).on('pageinit', '#home', function(){
 
-
-
     $.couch.db("leadmanager").view("leadmanager/leads", {
 		success: function(data){
 		$('#jsonleads').empty();
@@ -13,66 +11,54 @@ $(document).on('pageinit', '#home', function(){
 			console.log(item);
 			console.log(item.name);
 			console.log(index);
+            console.log(item.key);
 
-			$("#jsonleads").append(
-				$('<li>').append(
-					$('<a id="'+value.key+'">')
-                          .attr("href", "program.html?program=" + item.name[1])
-                          .text(item.name[1])
-					)
-				)
+            $('#jsonleads').append(leadsLink(item, value));
 
-			});
-			$('#jsonleads').listview('refresh');
-		}
-	});
+        });
+        $('#jsonleads').listview('refresh');
 
-});
-/*
-urlVars = function () {
-    var urlPairs;
-    var urlData = $($.mobile.activePage).data("url");
-    var urlParts = urlData.split('?');
-
-    urlPairs = urlParts[0].split('&');
-    console.log(urlPairs);
-    var urlValues = {};
-    for (var pair in urlPairs) {
-        var keyValue = urlPairs[pair].split('=');
-        var key = decodeURIComponent(keyValue[0]);
-        var value = decodeURIComponent(keyValue[1]);
-        urlValues[key] = value;
-    }
-    return (urlValues);
-
-};
-
-
-$(document).on('pageinit', '#program', function(){
-   var program = urlVars()["program"];
-    console.log(program);
-    $.couch.db('leadmanager').view('leadmanager/programCourses', {
-        success: function(data){
-            $('#s').empty();
-            $.each(data.rows, function(index, value){
-                console.log(value);
-                var item = (value.value || value.doc);
-                console.log(item);
-                console.log(item.name);
-                $("#s").append(
-                    $('<li>').append(
-                        $('<a>')
-                            .attr("href", "program.html?program=" + item.name)
-                            .text(item.name)
-                    )
-                )
-            });
-            $('#s').listview('refresh');
         }
 
     });
 
-
-
 });
- */
+
+    //Creates a lead link list item
+    function leadsLink(item, value){
+
+    //debugger;
+    return '<li id="'+ value.key+'"><a href="javascript:void(0)'+ '" onclick="goToLeadDetailPage(\''+ item.name[1] + '\',\''+ item.email[1] + '\',\''+ value.key +  '\',\''+ item.phone[1] +'\')">'+ item.name[1]
+            + '</a></li>';
+    };
+
+    //Dnyamic Page
+    function goToLeadDetailPage(itemName, itemEmail, valueKey, itemPhone){
+
+        //create the page html template
+        var leadPage = $("<div data-role='page' id='"+ valueKey +"'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-ajax='false'>Back</a><h1>" + itemName + "</h1></div><div data-role='content' align='center'>"
+                    + '<h2>' + itemName + '</h2>'
+                    + '<h3>' + itemPhone + '</h3>'
+                    + '<h3>' + itemEmail + '</h3>'
+                    + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" id="ed">Edit</a>'
+                    + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" id="del">Delete</a>'
+                    + '<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="bars" data-theme="b">' + "Contact " + itemName + " By..."
+                    + '</a>'
+                    + '<div data-role="popup" id="popupMenu" data-theme="a">'
+                    + '<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">'
+                    + '<li data-role="divider" data-theme="b"></li>'
+                    +   '<li><a href="tel:' + itemPhone + '">Phone</a></li>'
+                    +   '<li><a href="smsto:' + itemPhone + '">Text</a></li>'
+                    +   '<li><a href="mailto:' + itemEmail + '?Subject=Hello!">Email</a></li></ul>'
+                    + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Cancel</a>'
+                    + '</div></div></div>');
+
+        //append the new page to the page container
+        leadPage.appendTo( $.mobile.pageContainer);
+
+
+        //go to the newly created page
+        $.mobile.changePage(leadPage);
+        //return false
+                
+    }
