@@ -63,8 +63,61 @@ $('#additem').on('pageinit', function(){
 
 });
 
+// Delete Single
+function deleteSingleLead(key) {
+    var ask = confirm("Really? Are You Sure You Want to Delete this Lead?");
+    if (ask) {
+        localStorage.removeItem(key);
+        window.location.reload();
+    }else{
+        alert("Your Lead was not Deleted");
+    }
+    window.location.reload();
 
-        
+}
+
+// Edit Single
+function editSingleLead(key) {
+    // Grab Data from Local Storage
+    //var key = $(this).data('key');
+    //var value = localStorage.getItem(key);
+    //var lead = JSON.parse(value);
+
+    //var doc = $(this).data('id');
+
+    //var rev = $('this').data('rev');
+     /*
+    console.log('clicked');
+    console.log(id);
+    console.log(rev);
+    console.log(valueKey);
+    console.log(valueKey.id);
+     */
+
+     var doc = 'dee1525f352439bb95d8d238e3008a37';
+     // Open Document
+    $.couch.db("leadmanager").openDoc(doc, {
+        success: function(data) {
+            console.log(doc);
+            console.log(data.name[1]);
+            console.log(data.phone[1]);
+            $("#name").val(data.name[1]);
+            $("#phone").val(data.phone[1]);
+            $("#email").val(data.email[1]);
+            $("#date").val(data.date[1]);
+        },
+        error: function(status) {
+            console.log(status);
+        }
+    });
+
+    //$('additem').page();
+    var saveButton = $('#submit');
+    saveButton.text("Save Changes");
+    saveButton.unbind();
+    window.location.reload();
+}
+
 // Delete Single Record from CouchDB
      /*
     $('#del').on('click', function(){

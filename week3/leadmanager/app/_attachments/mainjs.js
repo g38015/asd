@@ -43,8 +43,8 @@ function goToLeadDetailPage(itemName, itemEmail, valueKey, itemPhone){
                     + '<h2>' + itemName + '</h2>'
                     + '<h3>' + itemPhone + '</h3>'
                     + '<h3>' + itemEmail + '</h3>'
-                    + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" id="ed">Edit</a>'
-                    + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" id="del">Delete</a>'
+                    + '<a href="#additem" data-role="button" data-inline="true" data-rel="back" data-theme="c" id="ed" onclick="editSingleLead('+valueKey+')">Edit</a>'
+                    + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" id="del" onclick="deleteSingleLead('+valueKey+')">Delete</a>'
                     + '<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="bars" data-theme="b">' + "Contact " + itemName + " By..."
                     + '</a>'
                     + '<div data-role="popup" id="popupMenu" data-theme="a">'
@@ -63,7 +63,10 @@ function goToLeadDetailPage(itemName, itemEmail, valueKey, itemPhone){
         $.mobile.changePage(leadPage);
         //return false
 
+
 };
+
+/*
 
 $('body').on('click', '#del', function(data){
 
@@ -103,4 +106,4 @@ $('body').on('click', '#del', function(data){
     //}
 
 });
-
+  */

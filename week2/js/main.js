@@ -9,8 +9,8 @@ $('#additem').on('pageinit', function(){
     $( "#contactForm" ).validate({
         rules: {
             name: {
-                required: true,
-                min: 3
+                required: true
+                
             },
         }
     });
@@ -43,7 +43,7 @@ $('#additem').on('pageinit', function(){
         return false;
     };
 
-    $('#submit').on('click', storeData);
+    $('#submitLead').on('click', storeData);
 
 });
 
@@ -78,7 +78,7 @@ $('#additem').on('pageinit', function(){
      // Edit Single WORKING EXEPT FOR VALIDATE
       function editSingleLead(key) {
          // Grab Data from Local Storage
-         //var key = $(this).data('key');
+         //var key = $(this).data(key);
          var value = localStorage.getItem(key);
          var lead = JSON.parse(value);
             
@@ -96,8 +96,12 @@ $('#additem').on('pageinit', function(){
          $("#date").val(lead.date[1]);
          
          //$('additem').page();
-         var saveButton = $('#submit');
+         //$('#submitLead').hide();
+         
+         var saveButton = $('#submitLead');
          saveButton.text("Save Changes");
-         saveButton.unbind();
-         window.location.reload();
+         //window.location.reload();
+         
      }
+
+     
