@@ -39,10 +39,8 @@
       <file leaf-file-name="mainjs.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/_attachments/mainjs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="41" selection-start="471" selection-end="507" vertical-scroll-proportion="-0.62693685">
-              <folding>
-                <marker date="1377671589000" expanded="true" signature="2014:2030" placeholder="..." />
-              </folding>
+            <state line="21" column="41" selection-start="471" selection-end="507" vertical-scroll-proportion="0.071513705">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -67,8 +65,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1969" />
-    <option name="y" value="47" />
+    <option name="x" value="-1952" />
+    <option name="y" value="48" />
     <option name="width" value="1900" />
     <option name="height" value="987" />
   </component>
@@ -202,8 +200,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="RSpecRunConfigurationType" factoryName="RSpec">
@@ -333,14 +331,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1969" y="47" width="1900" height="987" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1952" y="48" width="1900" height="987" extended-state="1" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.165038" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16720955" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -425,24 +423,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/_attachments/program.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="43" selection-start="1647" selection-end="1647" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="41" column="43" selection-start="1647" selection-end="1647" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/_attachments/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="12" selection-start="6055" selection-end="7378" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="162" column="12" selection-start="6055" selection-end="7378" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/_attachments/mainjs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="62" column="16" selection-start="1829" selection-end="1829" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1377671589000" expanded="true" signature="2014:2030" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -476,9 +468,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/_attachments/program.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="43" selection-start="1647" selection-end="1647" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="41" column="43" selection-start="1647" selection-end="1647" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/_attachments/getdata.js">
@@ -497,16 +487,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/_attachments/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="15" selection-start="2237" selection-end="2237" vertical-scroll-proportion="-0.625">
-          <folding />
-        </state>
+        <state line="68" column="15" selection-start="2237" selection-end="2237" vertical-scroll-proportion="-0.625" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/_attachments/program.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="7" selection-start="1647" selection-end="1647" vertical-scroll-proportion="0.7427536">
-          <folding />
-        </state>
+        <state line="41" column="7" selection-start="1647" selection-end="1647" vertical-scroll-proportion="0.7427536" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/leads/map.js">
@@ -525,10 +511,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/_attachments/mainjs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="41" selection-start="471" selection-end="507" vertical-scroll-proportion="-0.62693685">
-          <folding>
-            <marker date="1377671589000" expanded="true" signature="2014:2030" placeholder="..." />
-          </folding>
+        <state line="21" column="41" selection-start="471" selection-end="507" vertical-scroll-proportion="0.071513705">
+          <folding />
         </state>
       </provider>
     </entry>

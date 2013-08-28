@@ -5,6 +5,7 @@
 $('#home').on('pageinit', function(){
   // Loads json from ajax when Clicked  
   $('#jsonbtn').on('click', function () {
+    console.log('clicked load getJson');
     getJson(); 
   });
   // Loads xml from ajax when Clicked 
@@ -46,7 +47,7 @@ var getJson = function() {
             function leadsLink(val){
 
               //debugger;
-              return '<li><a href="#page" class="dynamic" id="'+value.key+'"><h2>' + val.name + '</h2><p>' + val.email + '</p><p class="ui-li-aside"><strong>' + val.date +'</strong></p></a></li>';
+              return '<li><a href="#page" class="dynamic" id="'+key+'"><h2>' + val.name + '</h2><p>' + val.email + '</p><p class="ui-li-aside"><strong>' + val.date +'</strong></p></a></li>';
                   
             };
 
