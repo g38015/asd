@@ -66,7 +66,7 @@ $('#additem').on('pageinit', function(){
 
         
 // Delete Single Record from CouchDB
-    
+     /*
     $('#del').on('click', function(){
         console.log('clicked');
 
@@ -98,7 +98,7 @@ $('#additem').on('pageinit', function(){
              alert("Your Lead was not Deleted");
          }
     });
-
+    */
 
 
 
