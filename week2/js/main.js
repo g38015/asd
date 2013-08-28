@@ -62,7 +62,6 @@ $('#additem').on('pageinit', function(){
     $('#deleteall').on('click', clearLocal);
         
 
-     
      // Delete Single WORKING
      function deleteSingleLead(key) {
          var ask = confirm("Really? Are You Sure You Want to Delete this Lead?");
@@ -72,11 +71,10 @@ $('#additem').on('pageinit', function(){
          }else{
              alert("Your Lead was not Deleted");
          }
+         window.location.reload();
               
      }
 
-
-     
      // Edit Single WORKING EXEPT FOR VALIDATE
       function editSingleLead(key) {
          // Grab Data from Local Storage
@@ -84,25 +82,22 @@ $('#additem').on('pageinit', function(){
          var value = localStorage.getItem(key);
          var lead = JSON.parse(value);
             
-            /*
             console.log(key);
             console.log(value);
             console.log(lead.name[1]);
             console.log(lead.phone[1]);
             console.log(lead.email[1]);
             console.log(lead.date[1]);
-            */
-    
+            
          // Populate Form Fields
          $("#name").val(lead.name[1]);
          $("#phone").val(lead.phone[1]);
          $("#email").val(lead.email[1]);
          $("#date").val(lead.date[1]);
          
-
          //$('additem').page();
-         var saveButton = $('#newLead');
+         var saveButton = $('#submit');
          saveButton.text("Save Changes");
          saveButton.unbind();
-         
+         window.location.reload();
      }

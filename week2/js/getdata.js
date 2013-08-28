@@ -46,7 +46,7 @@ var getJson = function() {
             function leadsLink(val){
 
               //debugger;
-              return '<li><a href="#page" class="dynamic"><h2>' + val.name + '</h2><p>' + val.email + '</p><p class="ui-li-aside"><strong>' + val.date +'</strong></p></a></li>';
+              return '<li><a href="#page" class="dynamic" id="'+value.key+'"><h2>' + val.name + '</h2><p>' + val.email + '</p><p class="ui-li-aside"><strong>' + val.date +'</strong></p></a></li>';
                   
             };
 
@@ -167,76 +167,49 @@ var getLocal = function(){
                     console.log(value);
                     console.log(obj);
 
-        var makeSubList = $("<li></li>");
-        var makeSubLi = $( "<h3>"+obj.name[1]+"</h3>"+
-                "<p><strong>"+obj.date[1]+"</strong></p>"+
-                "<p>"+obj.email[1]+"</p>" +
-                "<p>"+obj.name[1]+"</p>" );
-        var makeLink = $('<a href="#" id='+key+' data-rel="popup" data-position-to="window" data-role="button" data-inline="true" data-transition="pop" data-icon="delete" data-theme="b">Delete page...</a>');
+        $('#localleads').append(leadsLink(obj, key));
 
-          makeLink.on('click', function(){
-               
-                
-                deleteSingleLead(this.id);
-                //editSingleLead(this.id);
-                
-                
-            
-            });
-          
-            makeLink.html(makeSubLi);
-            makeSubList.append(makeLink).appendTo("#localleads");
-
-         
-
-          $('#localleads').listview('refresh');
-
-        }
-
+      }
+      $('#localleads').listview('refresh');
         
     }   
         
 };
 
+//Creates a lead link list item
+function leadsLink(obj, key){
 
-        /*            
-        // Add li to lead page
-        $('<li>' + '<a href="#page" class="dynamic" id='+"list:"+key+'><h2>'+ obj.name[1] +'</h2><p>' + obj.email[1] + '</p><p class="ui-li-aside"><strong>' + obj.date[1] +'</strong></p></a>'+'</li>').appendTo('#localleads');
-        */
-  
-          /*
-          // Local Storage Dynamic Page
-          $('.dynamic').on('click', function () {
+ //debugger;
+ return '<li id="'+ key+'"><a href="javascript:void(0)'+ '" onclick="goToLeadDetailPage(\''+ obj.name[1] + '\',\''+ obj.email[1] + '\',\''+ key +  '\',\''+ obj.phone[1] +'\')">'+ obj.name[1]
+            + '</a></li>';
+};
 
-              //create the dynamic page html template
-              var leadPage = $("<div data-role='page' id='"+key+"'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-ajax='false'>Back</a><h1>" + obj.name[1] + "</h1></div><div data-role='content' align='center'>" 
-                          + '<h2>' + obj.name[1] + '</h2>' 
-                          + '<h3>' + obj.phone[1] + '</h3>' 
-                          + '<h3>' + obj.email[1] + '</h3>'
-                          + '<h3>' + obj.date[1] + '</h3>'
-                          + '<a href="#popupMenu" data-rel="popup" data-role="button" data-transition="slideup" data-theme="b">' + "Contact " + obj.name[1] + " By..."
-                          + '</a>'
-                          + '<div align="center">'
-                          + '<a href="#additem" data-role="button" id="editsingle" data-theme="a">Edit</a>'
-                          + '<a href="#home" data-role="button" id="deletesingle" data-theme="c">Delete</a>'
-                          + '</div>'
-                          + '<div data-role="popup" id="popupMenu" data-theme="a">'
-                          + '<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">'
-                          + '<li data-role="divider" data-theme="b"></li>'
-                          +   '<li><a href="tel:' + obj.phone[1] + '">Phone</a></li>'
-                          +   '<li><a href="smsto:' + obj.phone[1] + '">Text</a></li>'
-                          +   '<li><a href="mailto:' + obj.email[1] + '?Subject=Hello!">Email</a></li></ul>'
-                          + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Cancel</a>'
-                          + '</div></div></div>');
-                          
-              //append the new page to the page container
-              leadPage.appendTo( $.mobile.pageContainer);
+//Dnyamic Page
+function goToLeadDetailPage(itemName, itemEmail, key, itemPhone){
 
-              //go to the newly created page
-              $.mobile.changePage(leadPage);
-              return false
-            });
-            */
+        //create the page html template
+        var leadPage = $("<div data-role='page' id='"+ key +"'><div data-role='header'><a data-iconpos='left' data-icon='back' href='#home' data-role='button' data-ajax='false'>Back</a><h1>" + itemName + "</h1></div><div data-role='content' align='center'>"
+                    + '<h2>' + itemName + '</h2>'
+                    + '<h3>' + itemPhone + '</h3>'
+                    + '<h3>' + itemEmail + '</h3>'
+                    + '<a href="#additem" data-role="button" data-inline="true" data-rel="back" data-theme="c" id="ed" onclick="editSingleLead('+key+')">Edit</a>'
+                    + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c" id="del" onclick="deleteSingleLead('+key+')">Delete</a>'
+                    + '<a href="#popupMenu" data-rel="popup" data-role="button" data-inline="true" data-transition="slideup" data-icon="bars" data-theme="b">' + "Contact " + itemName + " By..."
+                    + '</a>'
+                    + '<div data-role="popup" id="popupMenu" data-theme="a">'
+                    + '<ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="d">'
+                    + '<li data-role="divider" data-theme="b"></li>'
+                    +   '<li><a href="tel:' + itemPhone + '">Phone</a></li>'
+                    +   '<li><a href="smsto:' + itemPhone + '">Text</a></li>'
+                    +   '<li><a href="mailto:' + itemEmail + '?Subject=Hello!">Email</a></li></ul>'
+                    + '<a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c">Cancel</a>'
+                    + '</div></div></div>');
 
-          
+        //append the new page to the page container
+        leadPage.appendTo( $.mobile.pageContainer);
 
+        //go to the newly created page
+        $.mobile.changePage(leadPage);
+        //return false
+
+};
